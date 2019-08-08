@@ -1,0 +1,276 @@
+* {
+    margin:0;
+    padding:0;
+}
+#header {
+    width:100%;
+    height:60px;
+    background-color: #e8ece9;
+}
+#header>strong{
+    font-size: 210%;
+    font-family: 'Times New Roman', Times, serif;
+    color: #565766;
+    margin-left: 8%;
+    line-height: 180%;
+    padding-right: 2%;
+    float: left;
+}
+#header #nav {
+    width: 60%;
+    float: left;
+    margin:0 0 0 0;
+}
+#header .navList {
+    float: left;
+    list-style: none;
+    padding-left: 3%;
+    padding-right: 3%;
+    line-height: 300%;
+    margin-top: 0.8%;
+    font-size: 110%;
+    color: #565766;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    user-select: none;
+}
+#header .navList>a {
+    text-decoration: none;
+    color: #565766;
+    display: block;
+}
+#header .navList:first-child>a {
+    color: #7aa6a5;
+}
+#header .navList>a:hover {
+    color: #7aa6a5;
+}
+#header .navList>a:active {
+    color: #7aa6a5;
+}
+
+#LunBo {
+    position: relative;
+    width:100%;
+    overflow: hidden;
+}
+#carousel{
+    position: relative;
+    width:100%;
+    z-index: 0;
+}
+#shadow{
+    position: absolute;
+    width:100%;
+    background-color: rgba(98,182,186,0.6);
+    z-index: 1;
+}
+#shadow .title{
+    color: white;
+    font-size: 440%;
+    text-align: center;
+    position: relative;
+    margin-top:9%;
+	user-select: none;
+}
+#shadow .banners{
+    color: white;
+    text-align: center;
+    position: relative;
+    margin-top:2%;
+	user-select: none;
+}
+#carouselBlock{
+    position: absolute;
+}
+.slideBlock{
+    position: relative;
+    overflow: hidden;
+    width:100%;
+    height:100%;
+}
+.slideUL{
+    width:100%;
+    height:100%;
+}
+.slideUl>li{
+    position: absolute;
+    width:100%;
+}
+.carouselItem{
+    width:100%;
+}
+.carouselIndicators{
+    width:100%;
+    position: absolute;
+    top:70%;
+    margin:0 auto;
+    text-align: center;
+}
+.list-enter-to {
+    transition: all 10s ease;
+    transform: translateX(0);
+}
+
+.list-leave-active {
+    transition: all 5s ease;
+    transform: translateX(-100%)
+}
+
+.list-enter {
+    transform: translateX(100%) 
+}
+
+.list-leave {
+    transform: translateX(0)
+}
+.indicator{
+    position: relative;
+    width:12px;
+    height:12px;
+    float: left;
+    left: 45%;
+    margin:0 9px 0 9px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.6);
+}
+.indicatorChangeColor{
+    position: relative;
+    width:12px;
+    height:12px;
+    float: left;
+    left: 45%;
+    margin:0 9px 0 9px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: rgba(255,255,255,1);
+}
+#trangleShadowLeft{
+    position: absolute;
+    width: 100%;
+    height:65%;
+    background-color: rgba(255,255,255,1);
+    top:74%;
+    transform:rotate(15deg);
+    left: -15%;
+}
+#trangleShadowright{
+    position: absolute;
+    width: 40%;
+    height:40%;
+    background-color: rgba(255,255,255,1);
+    top:85%;
+    transform:rotate(-15deg);
+    left: 70%;
+}
+#downBlock{
+    width:100%;
+    position: absolute;
+    top:85%;
+	transition: all 0.8s;
+	user-select: none;
+}
+#downBlock>img{
+    position: relative;
+    width:5%;
+    margin-left: 50%;
+    left: -2.5%;
+}
+#Aside img{
+	position: relative;
+	float: left;
+	height: 30px;
+	width: 30px;
+	top: -27%;
+	left: 12%;
+	cursor: pointer;
+	user-select: none;
+}
+.asides{
+	right: 0;
+	position: absolute;
+	display: flex;
+	align-items: flex-end;
+	height: 8%;
+	width: 3%;
+	z-index: 999;
+}
+#sort{
+	cursor: pointer;
+	user-select: none;
+}
+#aside1{
+	width: 10%;
+	background-color: #8abde5;
+	top: 25%;
+}
+#aside1 #sort{
+	font-size: 20px;
+	color: white;
+	float: left;
+	position: relative;
+	top: -25%;
+	left: 30%;
+}
+#aside2{
+	top: 33%;
+}
+#aside2 #sort{
+	font-size: 20px;
+	color: white;
+	float: left;
+	position: relative;
+	top: -25%;
+	left: 26%;
+	display: none;
+}
+#aside3{
+	top: 41%;
+}
+#aside3 #sort{
+	font-size: 20px;
+	color: white;
+	float: left;
+	position: relative;
+	top: -25%;
+	left: 26%;
+	display: none;
+}
+#aside4{
+	top: 49%;
+}
+#aside4 #sort{
+	font-size: 20px;
+	color: white;
+	float: left;
+	position: relative;
+	top: -25%;
+	left: 26%;
+	display: none;
+}
+#aside5{
+	top: 57%;
+}
+#aside5 #sort{
+	font-size: 20px;
+	color: white;
+	float: left;
+	position: relative;
+	top: -25%;
+	left: 12%;
+	display: none;
+}
+#aside6{
+	top: 65%;
+}
+#aside6 #sort{
+	font-size: 20px;
+	color: white;
+	float: left;
+	position: relative;
+	top: -25%;
+	left: 20%;
+	display: none;
+}
+  

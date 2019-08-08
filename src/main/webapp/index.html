@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./link/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="http://code.jquery.com/color/jquery.color.plus-names-2.1.2.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<body style="overflow-x: hidden;">
+    <div id="header">
+        <strong style="user-select: none;">IT 培优</strong>
+        <ul id="nav">
+            <li v-for="(navList,index) in navLists" :key="index" class="navList">
+                <a href="">{{navList}}</a>
+            </li>
+        </ul>
+    </div>
+	<div id="Aside">
+		<div id="aside1" class="asides">
+			<img id="img1" src="static/p1r.png" alt="">
+			<div id="sort" class="sort1">首页</div>
+		</div>
+		<div id="aside2" class="asides">
+			<img id="img2" src="static/p2.png" alt="">
+			<div id="sort" class="sort2">编程组</div>
+		</div>
+		<div id="aside3" class="asides">
+			<img id="img3" src="static/p3.png" alt="">
+			<div id="sort" class="sort3">美工组</div>
+		</div>
+		<div id="aside4" class="asides">
+			<img id="img4" src="static/p4.png" alt="">
+			<div id="sort" class="sort4">产品组</div>
+		</div>
+		<div id="aside5" class="asides">
+			<img id="img5" src="static/p5.png" alt="">
+			<div id="sort" class="sort5">教师技能组</div>
+		</div>
+		<div id="aside6" class="asides">
+			<img id="img6" src="static/p6.png" alt="">
+			<div id="sort" class="sort6">新媒体组</div>
+		</div>
+	</div>
+    <div id="LunBo">
+        <div id="carousel">
+            <div id="shadow">
+                <p class="title" id="title">欢 迎 来 到 I T 培 优</p>
+                <p class="banners" id="banners1">我们一起，共同学习，共同进步</p>
+                <p class="banners" id="banners2">Stay Hungry,  Stay Foolish</p>
+
+                <div class="carouselIndicators">
+                    <span v-for="(item,index) in slideList.length" :class="{'indicatorChangeColor':index===currentIndex,'indicator':index!=currentIndex}" @mouseover="change(index)"></span>
+                </div>
+            </div>
+            <div id="carouselBlock">
+                <div class="slideBlock">
+                    <!-- 过渡组件 -->
+                    <transition-group tag="ul" class="slideUL" name="list">
+                        <li v-for="(list,index) in slideList" :key="index" v-show="index===currentIndex">
+                            <img :src="list" class="carouselItem" alt="">
+                        </li>
+                    </transition-group>
+                </div>
+            </div>
+            
+        </div>
+        <div id="trangleShadowLeft"></div>
+        <div id="trangleShadowright"></div>
+        <div id="downBlock">
+            <img src="static/down.png" alt="">
+        </div>
+    </div>
+
+    <script type="text/javascript">
+		//获取鼠标位置
+		function getPos(ev){
+		    var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+		    var scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft;
+		 
+		    return{x:ev.clientX+scrollLeft,y:ev.clientY+scrollTop};
+		}
+		//跟随鼠标移动函数
+		document.onmousemove=function(ev){
+		  var oEvent=ev||event;
+		  var title=document.getElementById('title');
+		  var banners1=document.getElementById('banners1');
+		  var banners2=document.getElementById('banners2');
+		  var pos=getPos(oEvent);
+		
+		  title.style.left=(pos.x-760)*0.01+'px';
+		  title.style.top=(pos.y-237)*0.01+'px';
+		  banners1.style.left=(pos.x-760)*0.01+'px';
+		  banners1.style.top=(pos.y-325)*0.01+'px';
+		  banners2.style.left=(pos.x-760)*0.01+'px';
+		  banners2.style.top=(pos.y-365)*0.01+'px';
+		};
+		
+		
+		
+        //轮播高度适应屏幕
+        var NavHeight = document.getElementById("header").offsetHeight;
+        $(document).ready(function(){
+            var windowHeight = $(window).height();
+            var Height = windowHeight-NavHeight;
+            $(LunBo).height(Height);
+            $(shadow).height(Height);
+			
+			//上下图标hover事件
+			$(downBlock).hover(function(){
+				$(downBlock).css("top","88%");
+			},function(){
+				$(downBlock).css("top","85%");
+			})
+			
+			//侧边栏hover事件,应该可以简化
+			$(aside2).hover(function(){
+				$(img2).attr("src", "static/p2r.png");
+				$(aside2).stop(true).animate({width:'10%',backgroundColor:"#8abde5"},500,function(){
+					$(".sort2").show();
+				});
+			},function(){
+				$(".sort2").hide();
+				$(img2).attr("src", "static/p2.png");
+				$(aside2).stop(true).animate({width:'3%',backgroundColor:"transparent"},500);
+			})
+			$(aside3).hover(function(){
+				$(img3).attr("src", "static/p3r.png");
+				$(aside3).stop(true).animate({width:'10%',backgroundColor:"#8abde5"},500,function(){
+					$(".sort3").show();
+				});
+			},function(){
+				$(".sort3").hide();
+				$(img3).attr("src", "static/p3.png");
+				$(aside3).stop(true).animate({width:'3%',backgroundColor:"transparent"},500);
+			})
+			$(aside4).hover(function(){
+				$(img4).attr("src", "static/p4r.png");
+				$(aside4).stop(true).animate({width:'10%',backgroundColor:"#8abde5"},400,function(){
+					$(".sort4").show();
+				});
+			},function(){
+				$(".sort4").hide();
+				$(img4).attr("src", "static/p4.png");
+				$(aside4).stop(true).animate({width:'3%',backgroundColor:"transparent"},400);
+			})
+			$(aside5).hover(function(){
+				$(img5).attr("src", "static/p5r.png");
+				$(aside5).stop(true).animate({width:'10%',backgroundColor:"#8abde5"},400,function(){
+					$(".sort5").show();
+				});
+			},function(){
+				$(".sort5").hide();
+				$(img5).attr("src", "static/p5.png");
+				$(aside5).stop(true).animate({width:'3%',backgroundColor:"transparent"},400);
+			})
+			$(aside6).hover(function(){
+				$(img6).attr("src", "static/p6r.png");
+				$(aside6).stop(true).animate({width:'10%',backgroundColor:"#8abde5"},400,function(){
+					$(".sort6").show();
+				});
+			},function(){
+				$(".sort6").hide();
+				$(img6).attr("src", "static/p6.png");
+				$(aside6).stop(true).animate({width:'3%',backgroundColor:"transparent"},400);
+			})
+        });
+
+    </script>
+    <script src="js/app.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
