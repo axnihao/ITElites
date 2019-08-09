@@ -20,6 +20,6 @@ public class MyTestServlet extends HttpServlet
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         resp.setCharacterEncoding("UTF-8");
-        resp.getWriter().write("即将上线，敬请期待！");
+        resp.getWriter().write("<h1>即将上线，敬请期待！<h1>");
     }
 }
