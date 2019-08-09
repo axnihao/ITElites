@@ -19,6 +19,7 @@ public class MyTestServlet extends HttpServlet
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
+        resp.setCharacterEncoding("UTF-8");
         resp.getWriter().write("即将伤心，敬请期待！");
     }
 }
